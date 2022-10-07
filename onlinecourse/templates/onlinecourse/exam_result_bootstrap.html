@@ -36,7 +36,7 @@
 </nav>
 
 <div class="container-fluid">
-    {% if total_score_learner > 8 %}
+    {% if total_score_learner >= point_to_pass  %}
     <div class="alert alert-success">
        <b>Congratulations, {{user.first_name}}!</b> You have passed the exam and completed the course with the score {{total_score_learner}} / {{total_score_exam}} 
     </div>

@@ -154,12 +154,15 @@ def show_exam_result(request, course_id, submission_id):
         for choice in question.choice_set.all():
             if choice.is_correct:
                 total_score_exam += choice.question.point
-        
+    
+
+    point_to_pass = total_score_exam - 2
     context = {
         "course" : course,
         "selected_ids": selected_ids,
         "total_score_learner":total_score_learner,
-        "total_score_exam":total_score_exam
+        "total_score_exam":total_score_exam,
+        "point_to_pass": point_to_pass
     }
     
     return render(request,"onlinecourse/exam_result_bootstrap.html",context)
